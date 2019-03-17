@@ -1,8 +1,10 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using Api.EF;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -50,7 +52,8 @@ namespace Api
 
                         return HealthCheckResult.Healthy();
                     })
-                    .AddDbContextCheck<SuperheroContext>(); ;
+                    .AddUrlGroup( new Uri(Configuration["AnotherApiBaseUri"]), "AnotherApi uri")
+                    .AddDbContextCheck<SuperheroContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,7 +69,11 @@ namespace Api
                 app.UseHsts();
             }
 
-            app.UseHealthChecks("/healthCheck");
+            app.UseHealthChecks("/healthCheck", new HealthCheckOptions()
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
             app.UseHttpsRedirection();
             app.UseMvcWithDefaultRoute();
         }
