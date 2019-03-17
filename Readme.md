@@ -43,7 +43,7 @@ public ActionResult Working()
 ```
 ## ASP.NET Core before 2.2
 
-Xabaril guys created a healthcheck library to fill the gap in Asp.Net Core ecosystem as no health checks libraries were available in version 2.1 and prenious. This library, caled BeatPulse, is still supported and can be foud here https://github.com/Xabaril/BeatPulse
+Xabaril guys created a healthcheck library to fill the gap in Asp.Net Core ecosystem as no health checks libraries were available in version 2.1 and prenious. This library, called BeatPulse, is still supported and can be found here https://github.com/Xabaril/BeatPulse
 
 ## Native support in ASP.NET Core 2.2
 
