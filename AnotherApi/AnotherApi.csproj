@@ -4,13 +4,20 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <UserSecretsId>b635f541-3b3d-4d1c-a083-97b464e2cd84</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/7139049f-f4c4-461a-a8ef-d0802131a7cb/resourcegroups/LearningHealthChecks/providers/microsoft.insights/components/HealthChecksApi</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/7139049f-f4c4-461a-a8ef-d0802131a7cb/resourcegroups/LearningHealthChecks/providers/microsoft.insights/components/HealthChecksApi</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="2.2.0" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="2.2.22" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>
