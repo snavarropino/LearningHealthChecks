@@ -53,7 +53,8 @@ namespace Api
                         return HealthCheckResult.Healthy();
                     })
                     .AddUrlGroup( new Uri(Configuration["AnotherApiBaseUri"]), "AnotherApi uri")
-                    .AddDbContextCheck<SuperheroContext>();
+                    .AddDbContextCheck<SuperheroContext>()
+                    .AddApplicationInsightsPublisher();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

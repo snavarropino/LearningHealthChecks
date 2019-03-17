@@ -20,7 +20,8 @@ namespace AnotherApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHealthChecks()
-                .AddCheck< ConfigurableResultCheck>("configurable result");
+                .AddCheck< ConfigurableResultCheck>("configurable result")
+                .AddApplicationInsightsPublisher();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

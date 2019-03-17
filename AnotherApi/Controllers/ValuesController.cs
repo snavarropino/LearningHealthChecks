@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AnotherApi.Controllers
@@ -11,6 +12,12 @@ namespace AnotherApi.Controllers
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
+        }
+
+        [HttpPost]
+        public ActionResult<IEnumerable<string>> Post()
+        {
+            return StatusCode(503);
         }
 
     }
