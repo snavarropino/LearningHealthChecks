@@ -1,0 +1,25 @@
+﻿@using HealthChecksUI.Model
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <div>
+        <div>
+            <h1>WebHooks Secrets test application</h1>
+            
+                @foreach (var x in ViewData["WebHooks"] as IEnumerable<Webhook>)
+                {
+                <div>
+                    <div>Name: @x.Name</div>
+                    <div>Uri: @x.Uri</div>
+                    <div>Payload: @x.Payload</div>
+                    <div>RestoredPayload: @x.RestoredPayload</div>
+                </div>
+                }
+        </div>
+    </div>
+</body>
+</html>
